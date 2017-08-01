@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JS</title>
+	<script type="text/javascript" src="js2.js"></script>
+	<style type="text/css">
+		#a4
+		{
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+<h1>ENTER TEXT BELOW!!!</h1>
+<form>
+	<input type="text" name="text" rows="5" cols="5" id="1" onkeyup="cal()">
+</form>
+<div id="2"><span id="3"></span> <span id="a4"></span><br /><span id="5"></span></div>
+</body>
+</html>
+<script type="text/javascript">
+	var o=0;
+function fill1(str)
+{
+	document.getElementById("3").innerHTML = str;
+}
+	
+function fill2(str)
+{
+	document.getElementById("a4").innerHTML = str.substring(o,str.length);
+	document.getElementById("5").innerHTML = "WORD COUNT OUT OF LIMIT";
+}
+
+
+	function cal()
+	{
+		var str=$("#1").val();
+		var l=str.length,i=0,p=0;
+		while(i<(l-1))
+		{
+			if(str[i]==' ' && str[i+1]!=' ')
+			{p++;
+				if(p<6)
+					{document.getElementById("a4").innerHTML=""; document.getElementById("5").innerHTML=""; 
+
+			}
+
+			if(p<6)
+			o=i;
+		}
+
+			i++;	
+		}
+		
+
+		if(p<5)
+			fill1(str);
+		else
+			fill2(str);
+
+	}
+</script>
